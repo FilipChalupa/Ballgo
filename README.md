@@ -11,3 +11,8 @@ Init your project
 Run command `mango init your-project-directory-name`.
 
 Oh, that's it? Go to that directory, run `mango dev` and your browser should start up.
+
+Preview
+-----------------
+
+https://rawgit.com/Onset/Ballgo/build/dist/

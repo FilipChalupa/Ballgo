@@ -129,7 +129,7 @@ class PlayField {
 	}
 
 	placeFoodAtRandomPosition() {
-		this.food.setPosition(Math.random()*this.el.width, Math.random()*this.el.height)
+		this.food.setPosition(this.food.getRadius()+Math.random()*(this.el.width-2*this.food.getRadius()), this.food.getRadius()+Math.random()*(this.el.height-2*this.food.getRadius()))
 	}
 
 	resize() {

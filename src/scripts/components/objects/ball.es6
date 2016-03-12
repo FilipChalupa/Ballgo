@@ -86,18 +86,18 @@ class Ball extends Circle {
 		this.y += this.speed.y
 
 		// Wall bounce
-		if (this.x-this.radius < 0) {
-			this.x = this.x+this.radius
+		if (this.x < this.radius) {
+			this.x = this.radius
 			this.speed.x *= -1
-		} else if (this.x+this.radius > this.field.width) {
-			this.x = this.x-this.radius
+		} else if (this.x > this.field.width-this.radius) {
+			this.x = this.field.width-this.radius
 			this.speed.x *= -1
 		}
-		if (this.y-this.radius < 0) {
-			this.y = this.y+this.radius
+		if (this.y < this.radius) {
+			this.y = this.radius
 			this.speed.y *= -1
-		} else if (this.y+this.radius > this.field.height) {
-			this.y = this.y-this.radius
+		} else if (this.y > this.field.height-this.radius) {
+			this.y = this.field.height-this.radius
 			this.speed.y *= -1
 		}
 

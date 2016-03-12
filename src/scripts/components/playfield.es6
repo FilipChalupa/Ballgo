@@ -13,7 +13,8 @@ class PlayField {
 		this.ctx = element.getContext('2d')
 
 		this.images = {
-			go: $(data.go).get(0)
+			go: $(data.go).get(0),
+			poison: $(data.poison).get(0)
 		}
 
 		this.player = new Ball()
@@ -125,8 +126,21 @@ class PlayField {
 					+ Math.pow(this.player.getY()-food.getY(), 2)
 					< Math.pow(this.player.getRadius()+food.getRadius(), 2)) {
 				// Collision detected
-				this.player.addTail()
-				this.placeFoodAtRandomPosition(food)
+				switch (food.getType()) {
+					case 'good':
+						this.player.addTail()
+						this.player.cure()
+						this.placeFoodAtRandomPosition(food)
+						break
+					case 'poison':
+						this.food.splice(this.food.indexOf(food), 1)
+						this.player.eatPoison()
+				}
+				if (Math.random() < 0.1) {
+					var poison = new Food(this.images.poison, 'poison')
+					this.food.push(poison)
+					this.placeFoodAtRandomPosition(poison)
+				}
 			}
 		}
 	}

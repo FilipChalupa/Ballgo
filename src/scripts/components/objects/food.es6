@@ -1,12 +1,17 @@
 var Circle = require('./circle')
 
 class Food extends Circle {
-	constructor(image) {
+	constructor(image, type) {
 		super()
 		this.radius = 15
 		this.color = '#0000FF'
 
 		this.image = image
+		this.type = type || 'good'
+	}
+
+	getType() {
+		return this.type
 	}
 
 	render(context) {

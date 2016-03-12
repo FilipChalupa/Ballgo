@@ -18,28 +18,37 @@ class Ball extends Circle {
 		}
 		this.maxSpeed = 15
 		this.tail = false
+		this.poison = 1
+	}
+
+	eatPoison() {
+		this.poison = -1
+	}
+
+	cure() {
+		this.poison = 1
 	}
 
 	pushLeft(power) {
-		this.speed.x -= power * this.acceleration
+		this.speed.x -= this.poison * power * this.acceleration
 		if (this.speed.x < -this.maxSpeed) {
 			this.speed.x = -this.maxSpeed
 		}
 	}
 	pushUp(power) {
-		this.speed.y -= power * this.acceleration
+		this.speed.y -= this.poison * power * this.acceleration
 		if (this.speed.y < -this.maxSpeed) {
 			this.speed.y = -this.maxSpeed
 		}
 	}
 	pushRight(power) {
-		this.speed.x += power * this.acceleration
+		this.speed.x += this.poison * power * this.acceleration
 		if (this.speed.x > this.maxSpeed) {
 			this.speed.x = this.maxSpeed
 		}
 	}
 	pushDown(power) {
-		this.speed.y += power * this.acceleration
+		this.speed.y += this.poison * power * this.acceleration
 		if (this.speed.y > this.maxSpeed) {
 			this.speed.y = this.maxSpeed
 		}

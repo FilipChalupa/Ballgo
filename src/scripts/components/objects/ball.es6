@@ -59,6 +59,9 @@ class Ball extends Circle {
 			'ff',
 			'00'
 		]
+		if (color[0].length < 2) {
+			color[0] = '0'+color[0]
+		}
 		for (var i = 0; i < 3; i++) {
 			var x = color[i]
 			var newI = Math.floor(Math.random()*3)

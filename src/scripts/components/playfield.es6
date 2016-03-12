@@ -17,7 +17,9 @@ class PlayField {
 		}
 
 		this.player = new Ball()
-		this.food = new Food(this.images.go)
+		this.food = [
+			new Food(this.images.go)
+		]
 
 		this.resize()
 		this.render()
@@ -119,17 +121,19 @@ class PlayField {
 	}
 
 	detectCollision() {
-		if (Math.pow(this.player.getX()-this.food.getX(), 2)
-				+ Math.pow(this.player.getY()-this.food.getY(), 2)
-				< Math.pow(this.player.getRadius()+this.food.getRadius(), 2)) {
-			// Collision detected
-			this.player.addTail()
-			this.placeFoodAtRandomPosition()
+		for(let food of this.food) {
+			if (Math.pow(this.player.getX()-food.getX(), 2)
+					+ Math.pow(this.player.getY()-food.getY(), 2)
+					< Math.pow(this.player.getRadius()+food.getRadius(), 2)) {
+				// Collision detected
+				this.player.addTail()
+				this.placeFoodAtRandomPosition(food)
+			}
 		}
 	}
 
-	placeFoodAtRandomPosition() {
-		this.food.setPosition(this.food.getRadius()+Math.random()*(this.el.width-2*this.food.getRadius()), this.food.getRadius()+Math.random()*(this.el.height-2*this.food.getRadius()))
+	placeFoodAtRandomPosition(food) {
+		food.setPosition(food.getRadius()+Math.random()*(this.el.width-2*food.getRadius()), food.getRadius()+Math.random()*(this.el.height-2*food.getRadius()))
 	}
 
 	resize() {
@@ -140,7 +144,9 @@ class PlayField {
 		this.player.setFrame(this.el.width, this.el.height)
 		this.player.setPosition(this.el.width/2, this.el.height/2)
 
-		this.placeFoodAtRandomPosition()
+		for(let food of this.food) {
+			this.placeFoodAtRandomPosition(food)
+		}
 
 		this.render()
 	}
@@ -158,7 +164,9 @@ class PlayField {
 
 	render() {
 		this.ctx.clearRect(0, 0, this.el.width, this.el.height)
-		this.food.render(this.ctx)
+		for(let food of this.food) {
+			food.render(this.ctx)
+		}
 		this.player.render(this.ctx)
 	}
 }

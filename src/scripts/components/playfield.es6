@@ -22,7 +22,6 @@ class PlayField {
 		]
 
 		this.resize()
-		this.render()
 
 		$(window).on('resize', () => {this.resize()})
 

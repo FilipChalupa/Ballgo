@@ -12,7 +12,7 @@ class Tail extends Circle {
 	}
 
 	darken(hex) {
-		var lum = -0.1
+		var lum = -0.05
 		hex = hex.substr(1)
 
 		var rgb = "#", c, i

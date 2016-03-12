@@ -123,7 +123,7 @@ class PlayField {
 				+ Math.pow(this.player.getY()-this.food.getY(), 2)
 				< Math.pow(this.player.getRadius()+this.food.getRadius(), 2)) {
 			// Collision detected
-			this.player.addTail(this.food.getX(), this.food.getY())
+			this.player.addTail()
 			this.placeFoodAtRandomPosition()
 		}
 	}

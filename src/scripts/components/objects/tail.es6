@@ -24,11 +24,11 @@ class Tail extends Circle {
 		return rgb
 	}
 
-	addTail(x, y, color) {
+	addTail(color) {
 		if (this.tail) {
-			this.tail.addTail(x, y, this.color)
+			this.tail.addTail(this.color)
 		} else {
-			this.tail = new Tail(x, y, color)
+			this.tail = new Tail(this.x, this.y, color)
 		}
 	}
 

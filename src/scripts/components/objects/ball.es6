@@ -16,27 +16,40 @@ class Ball extends Circle {
 			x: 0,
 			y: 0
 		}
+		this.maxSpeed = 15
 		this.tail = false
 	}
 
 	pushLeft(power) {
 		this.speed.x -= power * this.acceleration
+		if (this.speed.x < -this.maxSpeed) {
+			this.speed.x = -this.maxSpeed
+		}
 	}
 	pushUp(power) {
 		this.speed.y -= power * this.acceleration
+		if (this.speed.y < -this.maxSpeed) {
+			this.speed.y = -this.maxSpeed
+		}
 	}
 	pushRight(power) {
 		this.speed.x += power * this.acceleration
+		if (this.speed.x > this.maxSpeed) {
+			this.speed.x = this.maxSpeed
+		}
 	}
 	pushDown(power) {
 		this.speed.y += power * this.acceleration
+		if (this.speed.y > this.maxSpeed) {
+			this.speed.y = this.maxSpeed
+		}
 	}
 
-	addTail(x, y) {
+	addTail() {
 		if (this.tail) {
-			this.tail.addTail(x, y, this.color)
+			this.tail.addTail(this.color)
 		} else {
-			this.tail = new Tail(x, y, this.color)
+			this.tail = new Tail(this.x, this.y, this.color)
 		}
 	}
 

@@ -15,4 +15,4 @@ Oh, that's it? Go to that directory, run `mango dev` and your browser should sta
 Preview
 -----------------
 
-https://rawgit.com/Onset/Ballgo/build/dist/
+http://onset.github.io/ballgo/

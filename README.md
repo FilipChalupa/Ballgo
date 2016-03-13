@@ -1,18 +1,7 @@
-`mango-cli` project example
-===========================
+#Ballgo
 
-Do you have `mango-cli` installed globally?
+To play the game use arrow keys or tilt your phone: http://onset.github.io/ballgo/
 
-If not: `npm install -g mango-cli`
+##Development
 
-Init your project
------------------
-
-Run command `mango init your-project-directory-name`.
-
-Oh, that's it? Go to that directory, run `mango dev` and your browser should start up.
-
-Preview
------------------
-
-http://onset.github.io/ballgo/
+Based on [mango-cli](http://mangoweb.github.io/mango/).

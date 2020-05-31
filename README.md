@@ -1,6 +1,6 @@
 # Ballgo
 
-To play the game use arrow keys or tilt your phone: http://onset.github.io/ballgo/
+To play the game use arrow keys or tilt your phone: https://filipchalupa.cz/ballgo/
 
 ## Development
 
